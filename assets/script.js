@@ -44,13 +44,15 @@ function writePassword() {
 
       for (let i = 0; i < passwordLength; i++) {
         var x = 0
-        password += desiredCharacterArrays[x].charAt(Math.floor(Math.random() * desiredCharacterArrays[x].length));
+
+        password += desiredCharacterArrays[x].charAt(Math.floor(Math.random() * desiredCharacterArrays[x].length))
 
         if (x < desiredCharacterArrays.length) {
           x++;
         } else {
           x = 0
         };
+
       };
       return password;
 
