@@ -2,7 +2,6 @@
 var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
-// write password is the function that posts the password to the page in response to the click
 function writePassword() {
 
   var inputLength = window.prompt("How long should your password be? Please enter a number between 8 and 128.");
@@ -32,48 +31,217 @@ function writePassword() {
 
   passwordText.value = password;
 
-  /* Separate arrays? 1 - 4 requirements
-  
-  Also DRYness of code - something can be simplified; strategy for identifying what needs to happen
-  2 criteria: length and diversity of pw
-  diversity criteria: up to 4
-
-  */
-
-  function generatePassword(passwordLength, caseSensitive, specialCharacters, includeNumbers) {
+  function generatePassword() {
     var characterSetSpecial = "[`!@#$%^&*()_+\-=\[\]{};':\"\\|,.<>\/?~]";
-    var characterSetCapitalized = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    var characterSetUppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
     var characterSetLowercase = "abcdefghijklmnopqrstuvwxyz"
     var characterSetNumbers = "1234567890"
-    var j = 0
-    var desiredCharacterArrays = [characterSetLowercase, characterSetSpecial, characterSetCapitalized, characterSetNumbers];
-    let password = ''
 
     // this is a for loop that uses passwordLength to determine i (how long it runs) and appends a new value chosen from the string for each appendage until the for loop is complete
-    //replace if statement for all the loops:
-    for (let i = 0; i < passwordLength; i++) {
+    if (lowerCase && upperCase && specialCharacters && includeNumbers) {
+      var desiredCharacterArrays = [characterSetLowercase, characterSetSpecial, characterSetUppercase, characterSetNumbers];
+      let password = ''
 
-      // pulling from arrays/strings based on the parameters of the if statement
-      // characters has to be defined - 
-      // how do we guarantee that we have, for as many diversity specs as we have, there is at least one of each? 
-      // rotate through each "array" - 1,2,3,4
-      // diversity requirement: 
-      // keep an index of which desiredCharacterArrays we're currently on
-      // beginning of for loop: make a variable for currentCharacterArray (j)
+      for (let i = 0; i < passwordLength; i++) {
+        var x = 0
+        password += desiredCharacterArrays[x].charAt(Math.floor(Math.random() * desiredCharacterArrays[x].length));
 
-      password += desiredCharacterArrays[j].charAt(Math.floor(Math.random() * charactersLength));
+        if (x < desiredCharacterArrays.length) {
+          x++;
+        } else {
+          x = 0
+        };
+      };
+      return password;
 
-      if (j < desiredCharacterArrays.length) {
-        j++;
-      } else {
-        j = 0
-      }
-    }
+      } else if (lowerCase && upperCase && specialCharacters && !includeNumbers) {
+        var desiredCharacterArrays = [characterSetLowercase, characterSetSpecial, characterSetUppercase];
 
-    return password;
+        for (let i = 0; i < passwordLength; i++) {
 
+          password += desiredCharacterArrays[x].charAt(Math.floor(Math.random() * charactersLength));
+
+          if (x < desiredCharacterArrays.length) {
+            x++;
+          } else {
+            x = 0
+          }
+        };
+        return password;
+
+      } else if (lowerCase && upperCase && !specialCharacters && !includeNumbers) {
+        var desiredCharacterArrays = [characterSetLowercase, characterSetUppercase];
+
+        for (let i = 0; i < passwordLength; i++) {
+
+          password += desiredCharacterArrays[x].charAt(Math.floor(Math.random() * charactersLength));
+
+          if (x < desiredCharacterArrays.length) {
+            x++;
+          } else {
+            x = 0
+          }
+        }
+      } else if (lowerCase && !upperCase && !specialCharacters && !includeNumbers) {
+        var desiredCharacterArrays = [characterSetLowercase];
+
+        for (let i = 0; i < passwordLength; i++) {
+
+          password += desiredCharacterArrays[x].charAt(Math.floor(Math.random() * charactersLength));
+
+          if (x < desiredCharacterArrays.length) {
+            x++;
+          } else {
+            x = 0
+          }
+        }
+      } else if (!lowerCase && !upperCase && !specialCharacters && includeNumbers) {
+        var desiredCharacterArrays = [characterSetNumbers];
+
+        for (let i = 0; i < passwordLength; i++) {
+
+          password += desiredCharacterArrays[x].charAt(Math.floor(Math.random() * charactersLength));
+
+          if (x < desiredCharacterArrays.length) {
+            x++;
+          } else {
+            x = 0
+          }
+        }
+      } else if (!lowerCase && !upperCase && specialCharacters && includeNumbers) {
+        var desiredCharacterArrays = [characterSetNumbers, characterSetSpecial];
+
+        for (let i = 0; i < passwordLength; i++) {
+
+          password += desiredCharacterArrays[x].charAt(Math.floor(Math.random() * charactersLength));
+
+          if (x < desiredCharacterArrays.length) {
+            x++;
+          } else {
+            x = 0
+          }
+        }
+      } else if (!lowerCase && upperCase && specialCharacters && includeNumbers) {
+        var desiredCharacterArrays = [characterSetNumbers, characterSetSpecial, characterSetUppercase];
+
+        for (let i = 0; i < passwordLength; i++) {
+
+          password += desiredCharacterArrays[x].charAt(Math.floor(Math.random() * charactersLength));
+
+          if (x < desiredCharacterArrays.length) {
+            x++;
+          } else {
+            x = 0
+          }
+        }
+      } else if (lowerCase && upperCase && !specialCharacters && includeNumbers) {
+        var desiredCharacterArrays = [characterSetLowercase, characterSetUppercase, characterSetNumbers];
+
+        for (let i = 0; i < passwordLength; i++) {
+
+          password += desiredCharacterArrays[x].charAt(Math.floor(Math.random() * charactersLength));
+
+          if (x < desiredCharacterArrays.length) {
+            x++;
+          } else {
+            x = 0
+          }
+        }
+      } else if (lowerCase && !upperCase && specialCharacters && includeNumbers) {
+        var desiredCharacterArrays = [characterSetLowercase, characterSetSpecial, characterSetNumbers];
+
+        for (let i = 0; i < passwordLength; i++) {
+
+          password += desiredCharacterArrays[x].charAt(Math.floor(Math.random() * charactersLength));
+
+          if (x < desiredCharacterArrays.length) {
+            x++;
+          } else {
+            x = 0
+          }
+        }
+      } else if (lowerCase && !upperCase && !specialCharacters && includeNumbers) {
+        var desiredCharacterArrays = [characterSetLowercase, characterSetNumbers];
+
+        for (let i = 0; i < passwordLength; i++) {
+
+          password += desiredCharacterArrays[x].charAt(Math.floor(Math.random() * charactersLength));
+
+          if (x < desiredCharacterArrays.length) {
+            x++;
+          } else {
+            x = 0
+          }
+        }
+      } else if (!lowerCase && upperCase && specialCharacters && !includeNumbers) {
+        var desiredCharacterArrays = [characterSetUppercase, characterSetSpecial];
+
+        for (let i = 0; i < passwordLength; i++) {
+
+          password += desiredCharacterArrays[x].charAt(Math.floor(Math.random() * charactersLength));
+
+          if (x < desiredCharacterArrays.length) {
+            x++;
+          } else {
+            x = 0
+          }
+        }
+      } else if (lowerCase && !upperCase && specialCharacters && !includeNumbers) {
+        var desiredCharacterArrays = [characterSetLowercase, characterSetSpecial];
+
+        for (let i = 0; i < passwordLength; i++) {
+
+          password += desiredCharacterArrays[x].charAt(Math.floor(Math.random() * charactersLength));
+
+          if (x < desiredCharacterArrays.length) {
+            x++;
+          } else {
+            x = 0
+          }
+        }
+      } else if (!lowerCase && upperCase && !specialCharacters && includeNumbers) {
+        var desiredCharacterArrays = [characterSetUppercase, characterSetNumbers];
+
+        for (let i = 0; i < passwordLength; i++) {
+
+          password += desiredCharacterArrays[x].charAt(Math.floor(Math.random() * charactersLength));
+
+          if (x < desiredCharacterArrays.length) {
+            x++;
+          } else {
+            x = 0
+          }
+        }
+      } else if (!lowerCase && !upperCase && specialCharacters && !includeNumbers) {
+        var desiredCharacterArrays = [characterSetSpecial];
+
+        for (let i = 0; i < passwordLength; i++) {
+
+          password += desiredCharacterArrays[x].charAt(Math.floor(Math.random() * charactersLength));
+
+          if (x < desiredCharacterArrays.length) {
+            x++;
+          } else {
+            x = 0
+          }
+        }
+      } else if (!lowerCase && upperCase && !specialCharacters && !includeNumbers) {
+        var desiredCharacterArrays = [characterSetUppercase];
+
+        for (let i = 0; i < passwordLength; i++) {
+
+          password += desiredCharacterArrays[x].charAt(Math.floor(Math.random() * charactersLength));
+
+          if (x < desiredCharacterArrays.length) {
+            x++;
+          } else {
+            x = 0
+          }
+        }
+    };
   }
 }
 
+// Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
