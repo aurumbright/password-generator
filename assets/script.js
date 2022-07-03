@@ -41,13 +41,13 @@ function writePassword() {
     if (lowerCase && upperCase && specialCharacters && includeNumbers) {
       var desiredCharacterArrays = [characterSetLowercase, characterSetSpecial, characterSetUppercase, characterSetNumbers];
       let password = ''
+      var x = 0
 
       for (let i = 0; i < passwordLength; i++) {
-        var x = 0
 
         password += desiredCharacterArrays[x].charAt(Math.floor(Math.random() * desiredCharacterArrays[x].length))
 
-        if (x < desiredCharacterArrays.length) {
+        if (x < (desiredCharacterArrays.length - 1)) {
           x++;
         } else {
           x = 0
@@ -56,190 +56,249 @@ function writePassword() {
       };
       return password;
 
-      } else if (lowerCase && upperCase && specialCharacters && !includeNumbers) {
-        var desiredCharacterArrays = [characterSetLowercase, characterSetSpecial, characterSetUppercase];
+    } else if (lowerCase && upperCase && specialCharacters && !includeNumbers) {
+      var desiredCharacterArrays = [characterSetLowercase, characterSetSpecial, characterSetUppercase];
+      let password = ''
+      var x = 0
 
-        for (let i = 0; i < passwordLength; i++) {
+      for (let i = 0; i < passwordLength; i++) {
 
-          password += desiredCharacterArrays[x].charAt(Math.floor(Math.random() * charactersLength));
+        password += desiredCharacterArrays[x].charAt(Math.floor(Math.random() * desiredCharacterArrays[x].length))
 
-          if (x < desiredCharacterArrays.length) {
-            x++;
-          } else {
-            x = 0
-          }
+        if (x < (desiredCharacterArrays.length - 1)) {
+          x++;
+        } else {
+          x = 0
         };
-        return password;
 
-      } else if (lowerCase && upperCase && !specialCharacters && !includeNumbers) {
-        var desiredCharacterArrays = [characterSetLowercase, characterSetUppercase];
+      };
+      return password;
 
-        for (let i = 0; i < passwordLength; i++) {
+    } else if (lowerCase && upperCase && !specialCharacters && !includeNumbers) {
+      var desiredCharacterArrays = [characterSetLowercase, characterSetUppercase];
+      let password = ''
+      var x = 0
 
-          password += desiredCharacterArrays[x].charAt(Math.floor(Math.random() * charactersLength));
+      for (let i = 0; i < passwordLength; i++) {
 
-          if (x < desiredCharacterArrays.length) {
-            x++;
-          } else {
-            x = 0
-          }
-        }
-      } else if (lowerCase && !upperCase && !specialCharacters && !includeNumbers) {
-        var desiredCharacterArrays = [characterSetLowercase];
+        password += desiredCharacterArrays[x].charAt(Math.floor(Math.random() * desiredCharacterArrays[x].length))
 
-        for (let i = 0; i < passwordLength; i++) {
+        if (x < (desiredCharacterArrays.length - 1)) {
+          x++;
+        } else {
+          x = 0
+        };
 
-          password += desiredCharacterArrays[x].charAt(Math.floor(Math.random() * charactersLength));
+      };
+      return password;
 
-          if (x < desiredCharacterArrays.length) {
-            x++;
-          } else {
-            x = 0
-          }
-        }
-      } else if (!lowerCase && !upperCase && !specialCharacters && includeNumbers) {
-        var desiredCharacterArrays = [characterSetNumbers];
+    } else if (lowerCase && !upperCase && !specialCharacters && !includeNumbers) {
+      var desiredCharacterArrays = [characterSetLowercase];
+      let password = ''
+      var x = 0
 
-        for (let i = 0; i < passwordLength; i++) {
+      for (let i = 0; i < passwordLength; i++) {
 
-          password += desiredCharacterArrays[x].charAt(Math.floor(Math.random() * charactersLength));
+        password += desiredCharacterArrays[x].charAt(Math.floor(Math.random() * desiredCharacterArrays[x].length))
 
-          if (x < desiredCharacterArrays.length) {
-            x++;
-          } else {
-            x = 0
-          }
-        }
-      } else if (!lowerCase && !upperCase && specialCharacters && includeNumbers) {
-        var desiredCharacterArrays = [characterSetNumbers, characterSetSpecial];
+        if (x < (desiredCharacterArrays.length - 1)) {
+          x++;
+        } else {
+          x = 0
+        };
 
-        for (let i = 0; i < passwordLength; i++) {
+      };
+      return password;
 
-          password += desiredCharacterArrays[x].charAt(Math.floor(Math.random() * charactersLength));
+    } else if (!lowerCase && !upperCase && !specialCharacters && includeNumbers) {
+      var desiredCharacterArrays = [characterSetNumbers];
+      let password = ''
+      var x = 0
 
-          if (x < desiredCharacterArrays.length) {
-            x++;
-          } else {
-            x = 0
-          }
-        }
-      } else if (!lowerCase && upperCase && specialCharacters && includeNumbers) {
-        var desiredCharacterArrays = [characterSetNumbers, characterSetSpecial, characterSetUppercase];
+      for (let i = 0; i < passwordLength; i++) {
 
-        for (let i = 0; i < passwordLength; i++) {
+        password += desiredCharacterArrays[x].charAt(Math.floor(Math.random() * desiredCharacterArrays[x].length))
 
-          password += desiredCharacterArrays[x].charAt(Math.floor(Math.random() * charactersLength));
+        if (x < (desiredCharacterArrays.length - 1)) {
+          x++;
+        } else {
+          x = 0
+        };
 
-          if (x < desiredCharacterArrays.length) {
-            x++;
-          } else {
-            x = 0
-          }
-        }
-      } else if (lowerCase && upperCase && !specialCharacters && includeNumbers) {
-        var desiredCharacterArrays = [characterSetLowercase, characterSetUppercase, characterSetNumbers];
+      };
+      return password;
 
-        for (let i = 0; i < passwordLength; i++) {
+    } else if (!lowerCase && !upperCase && specialCharacters && includeNumbers) {
+      var desiredCharacterArrays = [characterSetNumbers, characterSetSpecial];
+      let password = ''
+      var x = 0
 
-          password += desiredCharacterArrays[x].charAt(Math.floor(Math.random() * charactersLength));
+      for (let i = 0; i < passwordLength; i++) {
 
-          if (x < desiredCharacterArrays.length) {
-            x++;
-          } else {
-            x = 0
-          }
-        }
-      } else if (lowerCase && !upperCase && specialCharacters && includeNumbers) {
-        var desiredCharacterArrays = [characterSetLowercase, characterSetSpecial, characterSetNumbers];
+        password += desiredCharacterArrays[x].charAt(Math.floor(Math.random() * desiredCharacterArrays[x].length))
 
-        for (let i = 0; i < passwordLength; i++) {
+        if (x < (desiredCharacterArrays.length - 1)) {
+          x++;
+        } else {
+          x = 0
+        };
 
-          password += desiredCharacterArrays[x].charAt(Math.floor(Math.random() * charactersLength));
+      };
+      return password;
 
-          if (x < desiredCharacterArrays.length) {
-            x++;
-          } else {
-            x = 0
-          }
-        }
-      } else if (lowerCase && !upperCase && !specialCharacters && includeNumbers) {
-        var desiredCharacterArrays = [characterSetLowercase, characterSetNumbers];
+    } else if (!lowerCase && upperCase && specialCharacters && includeNumbers) {
+      var desiredCharacterArrays = [characterSetNumbers, characterSetSpecial, characterSetUppercase];
+      let password = ''
+      var x = 0
 
-        for (let i = 0; i < passwordLength; i++) {
+      for (let i = 0; i < passwordLength; i++) {
 
-          password += desiredCharacterArrays[x].charAt(Math.floor(Math.random() * charactersLength));
+        password += desiredCharacterArrays[x].charAt(Math.floor(Math.random() * desiredCharacterArrays[x].length))
 
-          if (x < desiredCharacterArrays.length) {
-            x++;
-          } else {
-            x = 0
-          }
-        }
-      } else if (!lowerCase && upperCase && specialCharacters && !includeNumbers) {
-        var desiredCharacterArrays = [characterSetUppercase, characterSetSpecial];
+        if (x < (desiredCharacterArrays.length - 1)) {
+          x++;
+        } else {
+          x = 0
+        };
 
-        for (let i = 0; i < passwordLength; i++) {
+      };
+      return password;
+    } else if (lowerCase && upperCase && !specialCharacters && includeNumbers) {
+      var desiredCharacterArrays = [characterSetLowercase, characterSetUppercase, characterSetNumbers];
+      let password = ''
+      var x = 0
 
-          password += desiredCharacterArrays[x].charAt(Math.floor(Math.random() * charactersLength));
+      for (let i = 0; i < passwordLength; i++) {
 
-          if (x < desiredCharacterArrays.length) {
-            x++;
-          } else {
-            x = 0
-          }
-        }
-      } else if (lowerCase && !upperCase && specialCharacters && !includeNumbers) {
-        var desiredCharacterArrays = [characterSetLowercase, characterSetSpecial];
+        password += desiredCharacterArrays[x].charAt(Math.floor(Math.random() * desiredCharacterArrays[x].length))
 
-        for (let i = 0; i < passwordLength; i++) {
+        if (x < (desiredCharacterArrays.length - 1)) {
+          x++;
+        } else {
+          x = 0
+        };
 
-          password += desiredCharacterArrays[x].charAt(Math.floor(Math.random() * charactersLength));
+      };
+      return password;
+    } else if (lowerCase && !upperCase && specialCharacters && includeNumbers) {
+      var desiredCharacterArrays = [characterSetLowercase, characterSetSpecial, characterSetNumbers];
+      let password = ''
+      var x = 0
 
-          if (x < desiredCharacterArrays.length) {
-            x++;
-          } else {
-            x = 0
-          }
-        }
-      } else if (!lowerCase && upperCase && !specialCharacters && includeNumbers) {
-        var desiredCharacterArrays = [characterSetUppercase, characterSetNumbers];
+      for (let i = 0; i < passwordLength; i++) {
 
-        for (let i = 0; i < passwordLength; i++) {
+        password += desiredCharacterArrays[x].charAt(Math.floor(Math.random() * desiredCharacterArrays[x].length))
 
-          password += desiredCharacterArrays[x].charAt(Math.floor(Math.random() * charactersLength));
+        if (x < (desiredCharacterArrays.length - 1)) {
+          x++;
+        } else {
+          x = 0
+        };
 
-          if (x < desiredCharacterArrays.length) {
-            x++;
-          } else {
-            x = 0
-          }
-        }
-      } else if (!lowerCase && !upperCase && specialCharacters && !includeNumbers) {
-        var desiredCharacterArrays = [characterSetSpecial];
+      };
+      return password;
+    } else if (lowerCase && !upperCase && !specialCharacters && includeNumbers) {
+      var desiredCharacterArrays = [characterSetLowercase, characterSetNumbers];
+      let password = ''
+      var x = 0
 
-        for (let i = 0; i < passwordLength; i++) {
+      for (let i = 0; i < passwordLength; i++) {
 
-          password += desiredCharacterArrays[x].charAt(Math.floor(Math.random() * charactersLength));
+        password += desiredCharacterArrays[x].charAt(Math.floor(Math.random() * desiredCharacterArrays[x].length))
 
-          if (x < desiredCharacterArrays.length) {
-            x++;
-          } else {
-            x = 0
-          }
-        }
-      } else if (!lowerCase && upperCase && !specialCharacters && !includeNumbers) {
-        var desiredCharacterArrays = [characterSetUppercase];
+        if (x < (desiredCharacterArrays.length - 1)) {
+          x++;
+        } else {
+          x = 0
+        };
 
-        for (let i = 0; i < passwordLength; i++) {
+      };
+      return password;
+    } else if (!lowerCase && upperCase && specialCharacters && !includeNumbers) {
+      var desiredCharacterArrays = [characterSetUppercase, characterSetSpecial];
+      let password = ''
+      var x = 0
 
-          password += desiredCharacterArrays[x].charAt(Math.floor(Math.random() * charactersLength));
+      for (let i = 0; i < passwordLength; i++) {
 
-          if (x < desiredCharacterArrays.length) {
-            x++;
-          } else {
-            x = 0
-          }
-        }
+        password += desiredCharacterArrays[x].charAt(Math.floor(Math.random() * desiredCharacterArrays[x].length))
+
+        if (x < (desiredCharacterArrays.length - 1)) {
+          x++;
+        } else {
+          x = 0
+        };
+
+      };
+      return password;
+    } else if (lowerCase && !upperCase && specialCharacters && !includeNumbers) {
+      var desiredCharacterArrays = [characterSetLowercase, characterSetSpecial];
+      let password = ''
+      var x = 0
+
+      for (let i = 0; i < passwordLength; i++) {
+
+        password += desiredCharacterArrays[x].charAt(Math.floor(Math.random() * desiredCharacterArrays[x].length))
+
+        if (x < (desiredCharacterArrays.length - 1)) {
+          x++;
+        } else {
+          x = 0
+        };
+
+      };
+      return password;
+    } else if (!lowerCase && upperCase && !specialCharacters && includeNumbers) {
+      var desiredCharacterArrays = [characterSetUppercase, characterSetNumbers];
+      let password = ''
+      var x = 0
+
+      for (let i = 0; i < passwordLength; i++) {
+
+        password += desiredCharacterArrays[x].charAt(Math.floor(Math.random() * desiredCharacterArrays[x].length))
+
+        if (x < (desiredCharacterArrays.length - 1)) {
+          x++;
+        } else {
+          x = 0
+        };
+
+      };
+      return password;
+    } else if (!lowerCase && !upperCase && specialCharacters && !includeNumbers) {
+      var desiredCharacterArrays = [characterSetSpecial];
+      let password = ''
+      var x = 0
+
+      for (let i = 0; i < passwordLength; i++) {
+
+        password += desiredCharacterArrays[x].charAt(Math.floor(Math.random() * desiredCharacterArrays[x].length))
+
+        if (x < (desiredCharacterArrays.length - 1)) {
+          x++;
+        } else {
+          x = 0
+        };
+
+      };
+      return password;
+    } else if (!lowerCase && upperCase && !specialCharacters && !includeNumbers) {
+      var desiredCharacterArrays = [characterSetUppercase];
+      let password = ''
+      var x = 0
+
+      for (let i = 0; i < passwordLength; i++) {
+
+        password += desiredCharacterArrays[x].charAt(Math.floor(Math.random() * desiredCharacterArrays[x].length))
+
+        if (x < (desiredCharacterArrays.length - 1)) {
+          x++;
+        } else {
+          x = 0
+        };
+
+      };
+      return password;
     };
   }
 }
