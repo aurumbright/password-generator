@@ -8,10 +8,10 @@ function writePassword() {
   var inputLength = window.prompt("How long should your password be? Please enter a number between 8 and 128.");
   var passwordLength = parseInt(inputLength);
 
-  if (passwordLength >= 128) {
+  if (passwordLength > 128) {
     window.alert("Please enter a number between 8 and 128.");
     return;
-  } else if (passwordLength <= 8) {
+  } else if (passwordLength < 8) {
     window.alert("Please enter a number between 8 and 128.");
     return;
   };
