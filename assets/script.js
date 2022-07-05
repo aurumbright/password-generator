@@ -299,6 +299,9 @@ function writePassword() {
 
       };
       return password;
+    } else if (!lowerCase && !upperCase && !specialCharacters && !includeNumbers) {
+      window.alert("Please make sure to choose which characters to include in your password.");
+      return;
     };
   }
 }
